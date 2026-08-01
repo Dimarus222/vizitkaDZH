@@ -7,7 +7,7 @@ import (
 	"crypto/rand"
 	"crypto/sha256"
 	"crypto/subtle"
-	_ "embed"
+	"embed"
 	"encoding/hex"
 	"encoding/json"
 	"errors"
@@ -17,6 +17,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
 )
@@ -42,6 +43,12 @@ var adminJS []byte
 
 //go:embed projects.seed.json
 var projectsSeed []byte
+
+// 100 сгенерированных демо-лендингов карточек, имена вида s-<hash>.html —
+// это и есть "скрытые пути": не последовательные и не угадываемые.
+//
+//go:embed s-*.html
+var landingFiles embed.FS
 
 // ---------------------------------------------------------------------------
 // Data models
@@ -266,6 +273,25 @@ func readJSON(r *http.Request, v interface{}) error {
 // ---------------------------------------------------------------------------
 // Handlers — static files
 // ---------------------------------------------------------------------------
+
+// handleLandingFile serves one of the 100 generated demo landing pages.
+// Only names matching the embedded "s-*.html" pattern are ever readable;
+// anything else (or any attempt at path traversal) returns 404.
+func handleLandingFile(w http.ResponseWriter, r *http.Request) {
+	name := r.PathValue("name")
+	if !strings.HasPrefix(name, "s-") || !strings.HasSuffix(name, ".html") || strings.ContainsAny(name, "/\\") {
+		http.NotFound(w, r)
+		return
+	}
+	data, err := landingFiles.ReadFile(name)
+	if err != nil {
+		http.NotFound(w, r)
+		return
+	}
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Header().Set("X-Content-Type-Options", "nosniff")
+	w.Write(data)
+}
 
 func serveStatic(content []byte, contentType string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -541,6 +567,10 @@ func main() {
 	mux.HandleFunc("GET /style.css", serveStatic(styleCSS, "text/css; charset=utf-8"))
 	mux.HandleFunc("GET /script.js", serveStatic(scriptJS, "application/javascript; charset=utf-8"))
 	mux.HandleFunc("GET /admin.js", serveStatic(adminJS, "application/javascript; charset=utf-8"))
+
+	// Демо-лендинги карточек: /s-<hash>.html — "скрытые пути" (не последовательные,
+	// не индексируются, каждый уже содержит meta robots=noindex внутри самого файла).
+	mux.HandleFunc("GET /{name}", handleLandingFile)
 
 	// Public API
 	mux.HandleFunc("GET /api/projects", handleProjectsList)
