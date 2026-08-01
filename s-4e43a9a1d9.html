@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Экспресс-многостраничный «Дизайн интерьера»</title>
+<meta name="description" content="Дизайн интерьера — демо-сайт, сгенерированный как пример дизайна и структуры для ниши «Дизайн интерьера».">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus:wght@400&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root{
+      --bg:#f2fbfa; --bg2:#e3f4f2; --card:#ffffff; --text:#0f2b2a;
+      --sub:#4d6b69; --primary:#0e9488; --primary2:#57d6c6; --line:#d3ece8;
+    }
+    *{box-sizing:border-box; margin:0; padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg); color:var(--text); font-family:'Nunito Sans',sans-serif; line-height:1.55; overflow-x:hidden;}
+    h1,h2,h3,h4{font-family:'Marcellus',serif; line-height:1.15; letter-spacing:-0.01em;}
+    a{color:inherit; text-decoration:none;}
+    img,svg{display:block; max-width:100%;}
+    .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:999px; font-weight:600;
+      background:linear-gradient(135deg,var(--primary),var(--primary2)); color:#111; border:none; cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease; font-size:0.95rem;}
+    .btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px var(--primary);}
+    .btn.ghost{background:transparent; color:var(--text); border:1.5px solid var(--line);}
+    .btn.ghost:hover{border-color:var(--primary); box-shadow:none;}
+    .tag{display:inline-block; padding:6px 14px; border-radius:999px; font-size:0.78rem; font-weight:600;
+      background:var(--bg2); color:var(--primary); border:1px solid var(--line); letter-spacing:.04em; text-transform:uppercase;}
+    section{padding:88px 0;}
+    .eyebrow{color:var(--primary); font-weight:700; font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:14px; display:block;}
+    .lead{color:var(--sub); font-size:1.08rem; max-width:640px;}
+    .grid{display:grid; gap:26px;}
+    .g3{grid-template-columns:repeat(3,1fr);}
+    .g2{grid-template-columns:repeat(2,1fr);}
+    .g4{grid-template-columns:repeat(4,1fr);}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:30px;}
+    header.site{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
+      background:color-mix(in srgb, var(--bg) 82%, transparent); border-bottom:1px solid var(--line);}
+    header.site .wrap{display:flex; align-items:center; justify-content:space-between; padding:18px 24px;}
+    .brand{font-family:'Marcellus',serif; font-weight:700; font-size:1.25rem;}
+    nav.top a{margin-left:28px; font-size:.92rem; color:var(--sub); font-weight:500;}
+    nav.top a:hover{color:var(--primary);}
+    .navwrap{display:flex; align-items:center;}
+    footer.site{padding:56px 0 34px; border-top:1px solid var(--line); color:var(--sub); font-size:.9rem;}
+    footer.site .foot-row{display:flex; justify-content:space-between; flex-wrap:wrap; gap:18px;}
+    .hidden-path-note{position:fixed; bottom:10px; right:14px; font-size:10px; color:var(--sub); opacity:.35; z-index:5;}
+    .badge-secure{display:inline-flex; align-items:center; gap:6px; font-size:.78rem; color:var(--sub);}
+    .stat{text-align:center;}
+    .stat b{font-family:'Marcellus',serif; font-size:2.1rem; color:var(--primary); display:block;}
+    .stat span{color:var(--sub); font-size:.85rem;}
+    .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; counter-reset:s;}
+    .step b.num{font-family:'Marcellus',serif; font-size:2rem; color:var(--primary); opacity:.5;}
+    .test{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px;}
+    .test .name{font-weight:700; margin-top:14px;}
+    .price{text-align:center; position:relative;}
+    .price.pop{border-color:var(--primary); box-shadow:0 16px 40px -18px var(--primary);}
+    .price .amt{font-family:'Marcellus',serif; font-size:1.9rem; color:var(--primary); margin:10px 0;}
+    .price ul{list-style:none; text-align:left; margin:18px 0; display:grid; gap:8px; font-size:.92rem; color:var(--sub);}
+    .price ul li:before{content:'✓ '; color:var(--primary); font-weight:700;}
+    .cta-band{background:linear-gradient(120deg,var(--bg2),var(--card)); border:1px solid var(--line); border-radius:24px;
+      padding:56px; text-align:center;}
+    .burger{display:none; font-size:1.4rem; background:none; border:none; color:var(--text); cursor:pointer;}
+    @media(max-width:900px){
+      .g3,.g4{grid-template-columns:repeat(2,1fr);}
+      .steps{grid-template-columns:repeat(2,1fr);}
+      nav.top{display:none; position:absolute; top:64px; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--line); flex-direction:column; padding:14px 24px;}
+      nav.top.open{display:flex;}
+      nav.top a{margin:10px 0;}
+      .burger{display:block;}
+    }
+    @media(max-width:640px){
+      .g2,.g3,.g4{grid-template-columns:1fr;}
+      .steps{grid-template-columns:1fr;}
+      section{padding:56px 0;}
+      .cta-band{padding:34px 20px;}
+    }
+    </style>
+</head>
+
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">Дизайн интерьера</div>
+    <div class="navwrap">
+      <nav class="top" id="navTop">
+        <a href="#" class="pagelink" data-p="0">Главная</a><a href="#" class="pagelink" data-p="1">Услуги</a><a href="#" class="pagelink" data-p="2">О компании</a><a href="#" class="pagelink" data-p="3">Контакты</a>
+      </nav>
+      <button class="burger" id="burgerBtn" aria-label="menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div id="page-0" class="page">
+  <section style="position:relative; overflow:hidden; padding-top:80px;">
+    <svg width="480" height="480" style="position:absolute; top:-100px; right:-140px; opacity:.4;" viewBox="0 0 200 200"><path fill="#0e9488" d="M45.3,-58.5C58.6,-49.7,68.6,-34.6,71.9,-18.3C75.2,-2,71.8,15.5,63.1,29.9C54.4,44.3,40.4,55.6,24.6,62.1C8.8,68.6,-8.9,70.3,-25.2,65.3C-41.5,60.3,-56.5,48.6,-64.5,33.6C-72.5,18.6,-73.5,0.3,-68.8,-15.8C-64.1,-31.9,-53.8,-45.8,-40.3,-54.6C-26.8,-63.4,-13.4,-67.1,1.7,-69.3C16.8,-71.5,33.9,-67.3,45.3,-58.5Z" transform="translate(100 100)" /></svg>
+    <div class="wrap" style="position:relative;">
+      <span class="eyebrow">Многостраничный сайт</span>
+      <h1 style="font-size:2.5rem; max-width:640px; margin-bottom:18px;">Многостраничный сайт для «Дизайн интерьера»</h1>
+      <p class="lead" style="margin-bottom:26px;">Многостраничный сайт для ниши «дизайн интерьера». Реализован адаптивный дизайн под все устройства, ускоренная загрузка и базовая защита от типовых уязвимостей (XSS, CSRF, валидация форм).</p>
+      <a href="#" class="btn pagelink" data-p="3">Перейти к контактам →</a>
+    </div>
+  </section>
+  <section style="background:var(--bg2);">
+    <div class="wrap">
+      <span class="eyebrow">Кратко</span>
+      <h2 style="font-size:1.7rem; margin-bottom:30px;">Разделы сайта</h2>
+      <div class="grid g4">
+        <div class="card" style="text-align:center; cursor:pointer;" onclick="goPage(0)"><h3 style="font-size:1rem;">Главная</h3></div><div class="card" style="text-align:center; cursor:pointer;" onclick="goPage(1)"><h3 style="font-size:1rem;">Услуги</h3></div><div class="card" style="text-align:center; cursor:pointer;" onclick="goPage(2)"><h3 style="font-size:1rem;">О компании</h3></div><div class="card" style="text-align:center; cursor:pointer;" onclick="goPage(3)"><h3 style="font-size:1rem;">Контакты</h3></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="page-1" class="page" style="display:none;">
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Услуги</span>
+      <h2 style="font-size:1.9rem; margin-bottom:36px;">Что мы делаем в нише «Дизайн интерьера»</h2>
+      <div class="grid g3">
+    <div class="card">
+      <h3 style="font-size:1.08rem; margin-bottom:10px;">Чат/виджет мессенджера</h3>
+      <p class="lead" style="font-size:.94rem;">экономит время администратора и клиентов</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:1.08rem; margin-bottom:10px;">Каталог товаров/услуг с фильтрами</h3>
+      <p class="lead" style="font-size:.94rem;">работает одинаково быстро на телефоне и на компьютере</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:1.08rem; margin-bottom:10px;">Онлайн-оплата</h3>
+      <p class="lead" style="font-size:.94rem;">снижает число пропущенных заявок</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size:1.08rem; margin-bottom:10px;">Онлайн-калькулятор стоимости</h3>
+      <p class="lead" style="font-size:.94rem;">упрощает повторные обращения клиентов</p>
+    </div></div>
+    </div>
+  </section>
+  <section style="background:var(--bg2);">
+    <div class="wrap">
+      <span class="eyebrow">Процесс</span>
+      <h2 style="font-size:1.9rem; margin-bottom:36px;">Как мы работаем</h2>
+      <div class="steps">
+    <div class="step">
+      <b class="num">01</b>
+      <h3 style="margin:8px 0;">Заявка</h3>
+      <p class="lead" style="font-size:.92rem;">Клиент оставляет заявку на сайте — форма, звонок или мессенджер, без лишних полей.</p>
+    </div>
+    <div class="step">
+      <b class="num">02</b>
+      <h3 style="margin:8px 0;">Консультация</h3>
+      <p class="lead" style="font-size:.92rem;">Уточняем детали по «дизайн интерьера» и предлагаем оптимальный вариант.</p>
+    </div>
+    <div class="step">
+      <b class="num">03</b>
+      <h3 style="margin:8px 0;">Реализация</h3>
+      <p class="lead" style="font-size:.92rem;">Выполняем работу в согласованные сроки, держим клиента в курсе.</p>
+    </div>
+    <div class="step">
+      <b class="num">04</b>
+      <h3 style="margin:8px 0;">Результат</h3>
+      <p class="lead" style="font-size:.92rem;">Клиент получает результат и остаётся на связи для повторных обращений.</p>
+    </div></div>
+    </div>
+  </section>
+</div>
+
+<div id="page-2" class="page" style="display:none;">
+  <section>
+    <div class="wrap grid g2" style="align-items:center;">
+      <div>
+        <span class="eyebrow">О компании</span>
+        <h2 style="font-size:1.9rem; margin-bottom:16px;">Опыт в нише «Дизайн интерьера»</h2>
+        <p class="lead">Команда специализируется на задачах этой ниши и знает её особенности изнутри — от первого контакта с клиентом до повторных обращений.</p>
+      </div>
+      <div class="grid g2">
+        <div class="stat card" style="padding:20px;"><b>7+</b><span>лет на рынке</span></div>
+        <div class="stat card" style="padding:20px;"><b>300+</b><span>клиентов</span></div>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--bg2);">
+    <div class="wrap">
+      <span class="eyebrow">Отзывы</span>
+      <h2 style="font-size:1.9rem; margin-bottom:36px;">Отзывы клиентов</h2>
+      <div class="grid g3">
+    <div class="test">
+      <div>★★★★★</div>
+      <p class="lead" style="font-size:.94rem;">Обращался(-ась) по теме «дизайн интерьера» — всё чётко, по делу, без лишней воды. Уже рекомендовал(а) друзьям.</p>
+      <div class="name">Мария</div>
+    </div>
+    <div class="test">
+      <div>★★★★★</div>
+      <p class="lead" style="font-size:.94rem;">Понравилось, что на сайте сразу понятно, что делать. Заявку оформил(а) за минуту, перезвонили быстро.</p>
+      <div class="name">Сергей</div>
+    </div>
+    <div class="test">
+      <div>★★★★★</div>
+      <p class="lead" style="font-size:.94rem;">Давно искал(а) для «дизайн интерьера» толкового исполнителя — здесь не разочаровали, результат на уровне.</p>
+      <div class="name">Алексей</div>
+    </div></div>
+    </div>
+  </section>
+</div>
+
+<div id="page-3" class="page" style="display:none;">
+  <section>
+    <div class="wrap cta-band">
+      <h2 style="font-size:2rem; margin-bottom:14px;">Контакты</h2>
+      <p class="lead" style="margin:0 auto 26px; text-align:center;">Свяжитесь с нами по теме «Дизайн интерьера» любым удобным способом.</p>
+      <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+        <a href="tel:+79990000000" class="btn">+7 (999) 000-00-00</a>
+        <a href="mailto:info@s-4e43a9a1d9.ru" class="btn ghost">info@s-4e43a9a1d9.ru</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<footer class="site">
+  <div class="wrap foot-row">
+    <div>© <span id="y"></span> Дизайн интерьера. Демо-макет для ниши «Дизайн интерьера».</div>
+    <div class="badge-secure">🛡 адаптивная вёрстка · demo-версия</div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<script>
+function goPage(i){
+  document.querySelectorAll('.page').forEach((el,idx)=> el.style.display = idx===i ? 'block' : 'none');
+  window.scrollTo({top:0, behavior:'smooth'});
+  document.getElementById('navTop').classList.remove('open');
+}
+document.querySelectorAll('.pagelink').forEach(a=> a.addEventListener('click', e=>{
+  e.preventDefault(); goPage(parseInt(a.dataset.p));
+}));
+document.getElementById('burgerBtn').addEventListener('click',()=>{
+  document.getElementById('navTop').classList.toggle('open');
+});
+</script>
+</body></html>

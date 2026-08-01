@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Флагман-интернет-магазин «Кальянная»</title>
+<meta name="description" content="Кальянная — демо-сайт, сгенерированный как пример дизайна и структуры для ниши «Кальянная».">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root{
+      --bg:#15171a; --bg2:#1d2023; --card:#22262b; --text:#eef0f2;
+      --sub:#9aa0a6; --primary:#ff7a29; --primary2:#ffb27a; --line:#33383e;
+    }
+    *{box-sizing:border-box; margin:0; padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg); color:var(--text); font-family:'Source Sans 3',sans-serif; line-height:1.55; overflow-x:hidden;}
+    h1,h2,h3,h4{font-family:'Playfair Display',serif; line-height:1.15; letter-spacing:-0.01em;}
+    a{color:inherit; text-decoration:none;}
+    img,svg{display:block; max-width:100%;}
+    .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:999px; font-weight:600;
+      background:linear-gradient(135deg,var(--primary),var(--primary2)); color:#111; border:none; cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease; font-size:0.95rem;}
+    .btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px var(--primary);}
+    .btn.ghost{background:transparent; color:var(--text); border:1.5px solid var(--line);}
+    .btn.ghost:hover{border-color:var(--primary); box-shadow:none;}
+    .tag{display:inline-block; padding:6px 14px; border-radius:999px; font-size:0.78rem; font-weight:600;
+      background:var(--bg2); color:var(--primary); border:1px solid var(--line); letter-spacing:.04em; text-transform:uppercase;}
+    section{padding:88px 0;}
+    .eyebrow{color:var(--primary); font-weight:700; font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:14px; display:block;}
+    .lead{color:var(--sub); font-size:1.08rem; max-width:640px;}
+    .grid{display:grid; gap:26px;}
+    .g3{grid-template-columns:repeat(3,1fr);}
+    .g2{grid-template-columns:repeat(2,1fr);}
+    .g4{grid-template-columns:repeat(4,1fr);}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:30px;}
+    header.site{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
+      background:color-mix(in srgb, var(--bg) 82%, transparent); border-bottom:1px solid var(--line);}
+    header.site .wrap{display:flex; align-items:center; justify-content:space-between; padding:18px 24px;}
+    .brand{font-family:'Playfair Display',serif; font-weight:700; font-size:1.25rem;}
+    nav.top a{margin-left:28px; font-size:.92rem; color:var(--sub); font-weight:500;}
+    nav.top a:hover{color:var(--primary);}
+    .navwrap{display:flex; align-items:center;}
+    footer.site{padding:56px 0 34px; border-top:1px solid var(--line); color:var(--sub); font-size:.9rem;}
+    footer.site .foot-row{display:flex; justify-content:space-between; flex-wrap:wrap; gap:18px;}
+    .hidden-path-note{position:fixed; bottom:10px; right:14px; font-size:10px; color:var(--sub); opacity:.35; z-index:5;}
+    .badge-secure{display:inline-flex; align-items:center; gap:6px; font-size:.78rem; color:var(--sub);}
+    .stat{text-align:center;}
+    .stat b{font-family:'Playfair Display',serif; font-size:2.1rem; color:var(--primary); display:block;}
+    .stat span{color:var(--sub); font-size:.85rem;}
+    .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; counter-reset:s;}
+    .step b.num{font-family:'Playfair Display',serif; font-size:2rem; color:var(--primary); opacity:.5;}
+    .test{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px;}
+    .test .name{font-weight:700; margin-top:14px;}
+    .price{text-align:center; position:relative;}
+    .price.pop{border-color:var(--primary); box-shadow:0 16px 40px -18px var(--primary);}
+    .price .amt{font-family:'Playfair Display',serif; font-size:1.9rem; color:var(--primary); margin:10px 0;}
+    .price ul{list-style:none; text-align:left; margin:18px 0; display:grid; gap:8px; font-size:.92rem; color:var(--sub);}
+    .price ul li:before{content:'✓ '; color:var(--primary); font-weight:700;}
+    .cta-band{background:linear-gradient(120deg,var(--bg2),var(--card)); border:1px solid var(--line); border-radius:24px;
+      padding:56px; text-align:center;}
+    .burger{display:none; font-size:1.4rem; background:none; border:none; color:var(--text); cursor:pointer;}
+    @media(max-width:900px){
+      .g3,.g4{grid-template-columns:repeat(2,1fr);}
+      .steps{grid-template-columns:repeat(2,1fr);}
+      nav.top{display:none; position:absolute; top:64px; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--line); flex-direction:column; padding:14px 24px;}
+      nav.top.open{display:flex;}
+      nav.top a{margin:10px 0;}
+      .burger{display:block;}
+    }
+    @media(max-width:640px){
+      .g2,.g3,.g4{grid-template-columns:1fr;}
+      .steps{grid-template-columns:1fr;}
+      section{padding:56px 0;}
+      .cta-band{padding:34px 20px;}
+    }
+    </style>
+</head>
+
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">Кальянная</div>
+    <div class="navwrap">
+      <nav class="top" id="navTop"><a href="#каталог">Каталог</a><a href="#отзывы">Отзывы</a><a href="#доставка">Доставка</a><a href="#контакты">Контакты</a></nav>
+      <button class="burger" id="burgerBtn" aria-label="menu">☰</button>
+    </div>
+  </div>
+</header>
+<script>
+document.getElementById('burgerBtn').addEventListener('click',()=>{
+  document.getElementById('navTop').classList.toggle('open');
+});
+</script>
+
+<section style="position:relative; overflow:hidden; padding-top:90px;">
+  <div style="position:absolute; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle at 30% 30%, #ffb27a, transparent 70%); opacity:.35; top:-120px; right:-120px; filter:blur(10px);"></div>
+  <div class="wrap" style="position:relative; text-align:center; max-width:760px; margin:0 auto;">
+    <span class="tag">Интернет-магазин · Кальянная</span>
+    <h1 style="font-size:2.6rem; margin:20px 0;">Кальянная: каталог и быстрый заказ онлайн</h1>
+    <p class="lead" style="margin:0 auto 26px;">Интернет-магазин для ниши «кальянная». Реализован адаптивный дизайн под все устройства, ускоренная загрузка и базовая защита от типовых уязвимостей (XSS, CSRF, валидация форм).</p>
+    <a href="#каталог" class="btn">Перейти в каталог</a>
+  </div>
+</section>
+
+<section id="каталог">
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; flex-wrap:wrap; gap:14px;">
+      <h2 style="font-size:1.7rem;">Каталог</h2>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <span class="tag">Все</span><span class="tag">Новинки</span><span class="tag">Популярное</span><span class="tag">Скидки</span>
+      </div>
+    </div>
+    <div class="grid g3">
+    <div class="card" style="text-align:left;">
+      <div style="height:130px; border-radius:12px; background:linear-gradient(135deg,var(--bg2),var(--primary)); opacity:.85; margin-bottom:16px;"></div>
+      <h3 style="font-size:1rem;">Товар/услуга №1</h3>
+      <p class="lead" style="font-size:.85rem; margin:8px 0 14px;">Позиция каталога «Кальянная».</p>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <b style="color:var(--primary); font-size:1.1rem;">6090 ₽</b>
+        <button class="btn" style="padding:9px 18px; font-size:.82rem;">В корзину</button>
+      </div>
+    </div>
+    <div class="card" style="text-align:left;">
+      <div style="height:130px; border-radius:12px; background:linear-gradient(135deg,var(--bg2),var(--primary)); opacity:.85; margin-bottom:16px;"></div>
+      <h3 style="font-size:1rem;">Товар/услуга №2</h3>
+      <p class="lead" style="font-size:.85rem; margin:8px 0 14px;">Позиция каталога «Кальянная».</p>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <b style="color:var(--primary); font-size:1.1rem;">5790 ₽</b>
+        <button class="btn" style="padding:9px 18px; font-size:.82rem;">В корзину</button>
+      </div>
+    </div>
+    <div class="card" style="text-align:left;">
+      <div style="height:130px; border-radius:12px; background:linear-gradient(135deg,var(--bg2),var(--primary)); opacity:.85; margin-bottom:16px;"></div>
+      <h3 style="font-size:1rem;">Товар/услуга №3</h3>
+      <p class="lead" style="font-size:.85rem; margin:8px 0 14px;">Позиция каталога «Кальянная».</p>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <b style="color:var(--primary); font-size:1.1rem;">990 ₽</b>
+        <button class="btn" style="padding:9px 18px; font-size:.82rem;">В корзину</button>
+      </div>
+    </div>
+    <div class="card" style="text-align:left;">
+      <div style="height:130px; border-radius:12px; background:linear-gradient(135deg,var(--bg2),var(--primary)); opacity:.85; margin-bottom:16px;"></div>
+      <h3 style="font-size:1rem;">Товар/услуга №4</h3>
+      <p class="lead" style="font-size:.85rem; margin:8px 0 14px;">Позиция каталога «Кальянная».</p>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <b style="color:var(--primary); font-size:1.1rem;">3990 ₽</b>
+        <button class="btn" style="padding:9px 18px; font-size:.82rem;">В корзину</button>
+      </div>
+    </div>
+    <div class="card" style="text-align:left;">
+      <div style="height:130px; border-radius:12px; background:linear-gradient(135deg,var(--bg2),var(--primary)); opacity:.85; margin-bottom:16px;"></div>
+      <h3 style="font-size:1rem;">Товар/услуга №5</h3>
+      <p class="lead" style="font-size:.85rem; margin:8px 0 14px;">Позиция каталога «Кальянная».</p>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <b style="color:var(--primary); font-size:1.1rem;">3690 ₽</b>
+        <button class="btn" style="padding:9px 18px; font-size:.82rem;">В корзину</button>
+      </div>
+    </div>
+    <div class="card" style="text-align:left;">
+      <div style="height:130px; border-radius:12px; background:linear-gradient(135deg,var(--bg2),var(--primary)); opacity:.85; margin-bottom:16px;"></div>
+      <h3 style="font-size:1rem;">Товар/услуга №6</h3>
+      <p class="lead" style="font-size:.85rem; margin:8px 0 14px;">Позиция каталога «Кальянная».</p>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <b style="color:var(--primary); font-size:1.1rem;">2640 ₽</b>
+        <button class="btn" style="padding:9px 18px; font-size:.82rem;">В корзину</button>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<section id="отзывы" style="background:var(--bg2);">
+  <div class="wrap">
+    <span class="eyebrow">Отзывы</span>
+    <h2 style="font-size:1.9rem; margin-bottom:36px;">Что говорят покупатели</h2>
+    <div class="grid g3">
+    <div class="test">
+      <div>★★★★★</div>
+      <p class="lead" style="font-size:.94rem;">Обращался(-ась) по теме «кальянная» — всё чётко, по делу, без лишней воды. Уже рекомендовал(а) друзьям.</p>
+      <div class="name">Ирина</div>
+    </div>
+    <div class="test">
+      <div>★★★★★</div>
+      <p class="lead" style="font-size:.94rem;">Понравилось, что на сайте сразу понятно, что делать. Заявку оформил(а) за минуту, перезвонили быстро.</p>
+      <div class="name">Алексей</div>
+    </div>
+    <div class="test">
+      <div>★★★★★</div>
+      <p class="lead" style="font-size:.94rem;">Давно искал(а) для «кальянная» толкового исполнителя — здесь не разочаровали, результат на уровне.</p>
+      <div class="name">Мария</div>
+    </div></div>
+  </div>
+</section>
+
+<section id="доставка">
+  <div class="wrap grid g3">
+    <div class="card"><h3 style="font-size:1rem;">Доставка</h3><p class="lead" style="font-size:.9rem;">По городу — 1–2 дня, по стране — 3–7 дней.</p></div>
+    <div class="card"><h3 style="font-size:1rem;">Оплата</h3><p class="lead" style="font-size:.9rem;">Картой онлайн, при получении, по счёту для юрлиц.</p></div>
+    <div class="card"><h3 style="font-size:1rem;">Возврат</h3><p class="lead" style="font-size:.9rem;">14 дней на возврат при сохранении товарного вида.</p></div>
+  </div>
+</section>
+
+<section id="контакты">
+  <div class="wrap cta-band">
+    <h2 style="font-size:2rem; margin-bottom:14px;">Остались вопросы?</h2>
+    <p class="lead" style="margin:0 auto 26px; text-align:center;">Напишите нам — поможем подобрать нужную позицию из «Кальянная».</p>
+    <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+      <a href="tel:+79990000000" class="btn">Позвонить</a>
+      <a href="mailto:info@s-f8f1bf29da.ru" class="btn ghost">Написать</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap foot-row">
+    <div>© <span id="y"></span> Кальянная. Демо-макет для ниши «Кальянная».</div>
+    <div class="badge-secure">🛡 адаптивная вёрстка · demo-версия</div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+</body></html>

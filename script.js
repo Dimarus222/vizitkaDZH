@@ -97,6 +97,9 @@ function renderGrid() {
 
 function cardHtml(p) {
   const tech = (p.tech || []).slice(0, 3).map(t => `<span>${escapeHtml(t)}</span>`).join('');
+  const demoBtn = p.demo_url
+    ? `<a href="${escapeHtml(p.demo_url)}" target="_blank" rel="noopener" class="demo-link-btn" onclick="event.stopPropagation()">Перейти на сайт →</a>`
+    : '';
   return `
   <div class="project-card ${p.theme || 'cyber-green'}" data-id="${p.id}">
     <span class="cat-tag">${escapeHtml(p.category)} · #${p.id}</span>
@@ -104,6 +107,7 @@ function cardHtml(p) {
     <p>${escapeHtml(p.description || '')}</p>
     <div class="tags">${tech}</div>
     <span class="secure-tag">🛡 secure-by-default</span>
+    ${demoBtn}
   </div>`;
 }
 
@@ -132,6 +136,9 @@ function openModal(id) {
   if (!p) return;
   const featuresHtml = (p.features || []).map(f => `<li>${escapeHtml(f)}</li>`).join('');
   const techHtml = (p.tech || []).map(t => `<span>${escapeHtml(t)}</span>`).join('');
+  const demoBtn = p.demo_url
+    ? `<a href="${escapeHtml(p.demo_url)}" target="_blank" rel="noopener" class="demo-link-btn">Перейти на сайт →</a>`
+    : '';
   document.getElementById('modalContent').innerHTML = `
     <span class="cat-tag" style="color:var(--neon-green)">${escapeHtml(p.category)} · #${p.id}</span>
     <h3>${escapeHtml(p.title)}</h3>
@@ -140,6 +147,7 @@ function openModal(id) {
     <b style="font-size:0.85rem">Опции:</b>
     <ul>${featuresHtml}</ul>
     <span class="secure-tag">🛡 базовая защита: XSS / CSRF / валидация форм</span>
+    ${demoBtn}
   `;
   modalOverlay.classList.add('open');
 }
