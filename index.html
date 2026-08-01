@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дмитрий Жданов — Full-stack разработчик | Web, Backend, Mobile, Security</title>
+<meta name="description" content="Дмитрий Жданов — full-stack разработчик. Go, Python, C++, C#, JS. Сайты, backend, десктоп и мобильные приложения с фокусом на безопасность.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="matrix-bg"></canvas>
+<div class="grid-overlay"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo"><span class="dot">●</span> D.ZHDANOV<span style="color:var(--text-1)">.dev</span></div>
+    <nav class="links" id="navLinks">
+      <a href="#about">Обо мне</a>
+      <a href="#services">Услуги</a>
+      <a href="#qrguard">QR Guard PRO</a>
+      <a href="#projects">Проекты</a>
+      <a href="#process">Как я работаю</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Связаться</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge"><span class="pulse"></span> STATUS: AVAILABLE FOR PROJECTS</div>
+      <h1>Дмитрий Жданов<br><span class="accent glitch" id="glitchText">Full-stack разработчик</span></h1>
+      <p class="lead">
+        Студент 1 курса ИКИТ, направление «Компьютерная безопасность» (10.05.01).
+        Более 4 лет создаю сайты, Telegram-ботов, веб- и мобильные приложения
+        (с публикацией в Google Play) — с упором на архитектуру, чистый код и защищённость.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">Смотреть проекты →</a>
+        <a href="#contact" class="btn btn-ghost">Обсудить задачу</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="term-bar"><span></span><span></span><span></span></div>
+      <div class="term-line">$ whoami</div>
+      <div class="term-line"><span class="v">dmitry_zhdanov</span></div>
+      <div class="term-line">$ cat skills.stack</div>
+      <div class="term-line"><span class="k">backend:</span> <span class="v">Go, Python, C#, C++, C</span></div>
+      <div class="term-line"><span class="k">frontend:</span> <span class="v">JS, HTML, CSS</span></div>
+      <div class="term-line"><span class="k">infra:</span> <span class="v">Docker, docker-compose, CI/CD</span></div>
+      <div class="term-line">$ ./audit.sh --check-security</div>
+      <div class="term-line"><span class="k">SQLi:</span> <span class="v">blocked</span> · <span class="k">XSS:</span> <span class="v">blocked</span> · <span class="k">CSRF:</span> <span class="v">blocked</span></div>
+      <div class="term-line">$ echo $STATUS<span class="term-caret"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// О себе</span>
+      <h2>Разработка под ключ — с прицелом на безопасность</h2>
+      <p>Пишу устойчивый к атакам, поддерживаемый код и слежу за защищённостью каждого проекта, а не только за тем, чтобы он «работал».</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Разрабатываю программные продукты под ключ: от веб-сайтов и мобильных приложений до высоконагруженного backend и десктопных решений.</p>
+        <p>Отдельно закрываю типовые уязвимости — SQL-инъекции, XSS, CSRF, небезопасное хранение паролей и токенов, — настраиваю корректную авторизацию и валидацию входных данных. Код сдаётся не просто рабочим, а устойчивым к базовым векторам атак.</p>
+        <p>Подход к работе: обсуждаю ТЗ и фиксирую объём работ до старта, пишу чистый и поддерживаемый код, сдаю проект с базовой документацией, на связи в течение дня.</p>
+        <div class="stat-row">
+          <div class="stat"><b>4+</b><span>года в разработке</span></div>
+          <div class="stat"><b>Google Play</b><span>опубликованные приложения</span></div>
+          <div class="stat"><b>24ч</b><span>среднее время ответа</span></div>
+        </div>
+      </div>
+      <div class="skills-panel">
+        <div class="skill-row"><div class="skill-top"><span>Безопасность / Security</span><span>95%</span></div><div class="bar"><i style="width:95%"></i></div></div>
+        <div class="skill-row"><div class="skill-top"><span>Backend (Go / Python / C#)</span><span>92%</span></div><div class="bar"><i style="width:92%"></i></div></div>
+        <div class="skill-row"><div class="skill-top"><span>Frontend / адаптивный дизайн</span><span>90%</span></div><div class="bar"><i style="width:90%"></i></div></div>
+        <div class="skill-row"><div class="skill-top"><span>Мобильная разработка</span><span>85%</span></div><div class="bar"><i style="width:85%"></i></div></div>
+        <div class="skill-row"><div class="skill-top"><span>Docker / CI/CD</span><span>88%</span></div><div class="bar"><i style="width:88%"></i></div></div>
+        <div class="skill-row"><div class="skill-top"><span>Документация API / продукта</span><span>90%</span></div><div class="bar"><i style="width:90%"></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// Услуги</span>
+      <h2>Что я делаю</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🌐</div><h3>Веб-сайты и приложения</h3><p>Frontend + backend, адаптивная вёрстка, быстрая загрузка.</p></div>
+      <div class="service-card"><div class="service-icon">⚙️</div><h3>REST API и микросервисы</h3><p>Go / Python / C# — устойчивая архитектура под нагрузку.</p></div>
+      <div class="service-card"><div class="service-icon">🖥️</div><h3>Десктоп-приложения</h3><p>C++ / C# — производительные клиентские решения.</p></div>
+      <div class="service-card"><div class="service-icon">📱</div><h3>Мобильные приложения</h3><p>С возможностью публикации и поддержки в Google Play.</p></div>
+      <div class="service-card"><div class="service-icon">🐳</div><h3>Docker-упаковка</h3><p>Контейнеризация проектов для быстрого и предсказуемого деплоя.</p></div>
+      <div class="service-card"><div class="service-icon">🛡️</div><h3>Аудит безопасности</h3><p>Поиск и закрытие уязвимостей в существующем коде.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QR GUARD PRO -->
+<section id="qrguard" class="qrg-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// Флагманский проект</span>
+      <h2>QR Guard PRO</h2>
+      <p>Собственная разработка — веб-приложение, в котором вопросы защищённости продумывались с самого начала архитектуры, а не добавлялись postfactum.</p>
+    </div>
+    <div class="qrg-grid">
+      <div class="qrg-score">
+        <div class="grade">🛡</div>
+        <div class="grade-sub">security-first подход к архитектуре</div>
+        <div class="qrg-badges">
+          <span>Собственный security-чеклист</span>
+          <span>OWASP Top 10</span>
+          <span>Проверка на этапе разработки</span>
+        </div>
+      </div>
+      <div>
+        <p style="color:var(--text-1)">QR Guard PRO — веб-приложение собственной разработки, где защищённость закладывалась на уровне архитектуры, а не проверялась постфактум. Проект демонстрирует практический подход к защите продукта на всех уровнях — от архитектуры до обработки пользовательских данных.</p>
+        <ul class="qrg-list">
+          <li>Защита от SQL-инъекций, XSS и CSRF на уровне архитектуры</li>
+          <li>Безопасное хранение и обработка паролей / токенов</li>
+          <li>Строгая валидация входных данных и авторизация доступа</li>
+          <li>Готовность к внешнему security-аудиту по запросу</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// Портфолио</span>
+      <h2>Проекты</h2>
+      <p>Каждая карточка ниже — отдельная часть стека: backend/API, full-stack приложение, десктоп, инфраструктура и security-аудит. Ссылка на репозиторий/демо добавляется через админ-панель по мере готовности проектов.</p>
+    </div>
+    <div class="search-row">
+      <input type="text" id="searchInput" placeholder="🔍 Поиск по названию, нише или технологии...">
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="projects-grid" id="projectsGrid"></div>
+    <div class="load-more-row">
+      <button class="btn btn-ghost" id="loadMoreBtn">Показать ещё</button>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// Как я работаю</span>
+      <h2>Процесс от заявки до сдачи проекта</h2>
+      <p>Прозрачный процесс без сюрпризов по срокам и объёму работ.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Обсуждение ТЗ</h3>
+        <p>Фиксируем задачи, объём работ и сроки до старта разработки — без размытых формулировок.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Разработка</h3>
+        <p>Пишу чистый, поддерживаемый код с регулярными промежуточными демонстрациями результата.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Security-проверка</h3>
+        <p>Закрываю типовые уязвимости: SQL-инъекции, XSS, CSRF, валидация входных данных, авторизация.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>Сдача + документация</h3>
+        <p>Передаю проект с технической и продуктовой документацией. На связи после сдачи по возникающим вопросам.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// Частые вопросы</span>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>На каком стеке вы работаете?</summary>
+        <p>Backend — Go, Python, C#, C++, C. Frontend — JavaScript, HTML, CSS. Инфраструктура — Docker, docker-compose, CI/CD. Стек под конкретную задачу подбираю исходя из требований по нагрузке, срокам и дальнейшей поддержке.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Как вы обеспечиваете безопасность проекта?</summary>
+        <p>Закрываю типовые векторы атак: SQL-инъекции через параметризованные запросы, XSS через экранирование вывода, CSRF-токены на изменяющих запросах, безопасное хранение паролей и токенов, валидацию входных данных на каждом эндпоинте.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Что входит в сдачу проекта?</summary>
+        <p>Рабочий код, базовая техническая документация (архитектура, API), инструкция по деплою и, при необходимости, продуктовая документация для дальнейшей поддержки не мной.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Как считаются сроки и стоимость?</summary>
+        <p>После обсуждения ТЗ фиксирую объём работ и даю оценку по срокам под конкретную задачу — без универсальных прайс-листов, потому что объём у всех проектов разный.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Можно ли доработать существующий проект, а не начинать с нуля?</summary>
+        <p>Да — включая аудит безопасности и закрытие уязвимостей в уже написанном коде, не обязательно моём.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow">// Контакты</span>
+      <h2 style="margin-top:0">Обсудим ваш проект</h2>
+      <p style="color:var(--text-1)">Опишите задачу — отвечу в течение дня и предложу подход к реализации.</p>
+      <div style="margin-top:28px">
+        <div class="contact-info-item"><div class="ic">✉</div><div><b>Email</b><span id="emailText">contact@example.com</span></div></div>
+        <div class="contact-info-item"><div class="ic">💬</div><div><b>Telegram</b><span id="tgText">@your_telegram</span></div></div>
+        <div class="contact-info-item"><div class="ic">🕐</div><div><b>Время ответа</b><span>обычно в течение дня</span></div></div>
+      </div>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <div class="form-row"><label>Имя</label><input type="text" name="name" required></div>
+      <div class="form-row"><label>Email или Telegram</label><input type="text" name="contact" required></div>
+      <div class="form-row">
+        <label>Тип задачи</label>
+        <select name="type">
+          <option>Веб-сайт / лендинг</option>
+          <option>Backend / API</option>
+          <option>Мобильное приложение</option>
+          <option>Десктоп-приложение</option>
+          <option>Аудит безопасности</option>
+          <option>Другое</option>
+        </select>
+      </div>
+      <div class="form-row"><label>Сообщение</label><textarea name="message" required placeholder="Кратко опишите задачу..."></textarea></div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center">Отправить заявку</button>
+      <div class="form-note">Форма защищена базовой валидацией и не хранит лишние данные.</div>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Дмитрий Жданов · Full-stack разработчик</p>
+    <div class="footer-links">
+      <a href="#about">Обо мне</a>
+      <a href="#projects">Проекты</a>
+      <a href="#faq">FAQ</a>
+      <a href="/admin.html">Админ-панель</a>
+    </div>
+  </div>
+</footer>
+
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
