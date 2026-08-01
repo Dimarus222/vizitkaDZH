@@ -58,6 +58,8 @@ body {
 a { color: var(--neon-green); text-decoration: none; }
 ::selection { background: var(--neon-green); color: #041008; }
 
+p { text-align: justify; text-align-last: left; }
+
 .container {
   max-width: var(--maxw);
   margin: 0 auto;
@@ -336,31 +338,6 @@ section { padding: 80px 0; position: relative; z-index: 1; }
   background: rgba(255,255,255,0.04); color: var(--text-1);
 }
 .project-card .secure-tag { color: var(--neon-green); font-size: 0.72rem; font-family: var(--mono); }
-
-.demo-link-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 14px;
-  padding: 9px 16px;
-  border-radius: 6px;
-  border: 1px solid var(--neon-green);
-  color: var(--neon-green);
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-}
-.demo-link-btn:hover {
-  background: var(--neon-green);
-  color: #06131a;
-  box-shadow: 0 0 18px -4px var(--neon-green);
-}
-#modalContent .demo-link-btn {
-  margin-top: 18px;
-  width: fit-content;
-}
 
 .cyber-green { --card-accent: var(--neon-green); }
 .cyber-blue { --card-accent: var(--neon-blue); }
