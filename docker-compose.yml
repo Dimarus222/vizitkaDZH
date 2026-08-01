@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  site:
+    build: .
+    image: dzhdanov-site:latest
+    container_name: dzhdanov-site
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-changeme123}
+      - DATA_DIR=/app/data
+    volumes:
+      - site_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  site_data:
