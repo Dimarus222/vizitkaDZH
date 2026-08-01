@@ -35,6 +35,8 @@
     .g3{grid-template-columns:repeat(3,1fr);}
     .g2{grid-template-columns:repeat(2,1fr);}
     .g4{grid-template-columns:repeat(4,1fr);}
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:50px; align-items:center;}
+    .bento-grid{display:grid; grid-template-columns:1.3fr .7fr .7fr 1.3fr; gap:26px;}
     .card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:30px;}
     header.site{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
       background:color-mix(in srgb, var(--bg) 82%, transparent); border-bottom:1px solid var(--line);}
@@ -65,6 +67,9 @@
     @media(max-width:900px){
       .g3,.g4{grid-template-columns:repeat(2,1fr);}
       .steps{grid-template-columns:repeat(2,1fr);}
+      .hero-grid{grid-template-columns:1fr;}
+      .bento-grid{grid-template-columns:repeat(2,1fr);}
+      .bento-grid > div{grid-row:auto !important;}
       nav.top{display:none; position:absolute; top:64px; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--line); flex-direction:column; padding:14px 24px;}
       nav.top.open{display:flex;}
       nav.top a{margin:10px 0;}
@@ -73,6 +78,8 @@
     @media(max-width:640px){
       .g2,.g3,.g4{grid-template-columns:1fr;}
       .steps{grid-template-columns:1fr;}
+      .hero-grid{grid-template-columns:1fr;}
+      .bento-grid{grid-template-columns:1fr;}
       section{padding:56px 0;}
       .cta-band{padding:34px 20px;}
     }
@@ -98,7 +105,7 @@ document.getElementById('burgerBtn').addEventListener('click',()=>{
 
 <section style="position:relative; overflow:hidden; padding-top:96px;">
   <div style="position:absolute; inset:0; background-image:linear-gradient(#d3ece8 1px, transparent 1px), linear-gradient(90deg, #d3ece8 1px, transparent 1px); background-size:36px 36px; opacity:.35; mask-image:linear-gradient(180deg, black, transparent);"></div>
-  <div class="wrap" style="position:relative; display:grid; grid-template-columns:1.1fr .9fr; gap:50px; align-items:center;">
+  <div class="wrap hero-grid" style="position:relative;">
     <div>
       <span class="eyebrow">Одностраничный сайт</span>
       <h1 style="font-size:2.6rem; margin-bottom:18px;">Барбершоп: сайт, который приводит клиентов</h1>
